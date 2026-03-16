@@ -727,3 +727,8 @@ html[lang="es"] .lang-inline[data-lang="es"] {
     display: inline-flex;
   }
 }
+.nav-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+}
