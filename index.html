@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arturo's Painting</title>
+    <style>
+      :root {
+        --bg: #f8f6f2;
+        --surface: #ffffff;
+        --surface-soft: #f2eee8;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --line: #e7e0d7;
+        --dark: #16202a;
+        --accent: #5f7a63;
+        --accent-soft: #e7f0e8;
+        --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --radius-md: 14px;
+        --max: 1180px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+
+      .container {
+        width: min(var(--max), calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid rgba(231, 224, 215, 0.9);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        line-height: 1.1;
+      }
+
+      .brand p {
+        margin: 0.25rem 0 0;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .nav-wrap {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.96rem;
+        color: #334155;
+      }
+
+      nav a:hover { color: #000; }
+
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.28rem;
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+      }
+
+      .lang-toggle button {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 0.5rem 0.85rem;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .lang-toggle button.active {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 0.9rem 1.35rem;
+        font-weight: 700;
+        transition: 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--dark);
+        color: white;
+      }
+
+      .btn-primary:hover { transform: translateY(-1px); }
+
+      .btn-secondary {
+        background: white;
+        border-color: var(--line);
+        color: var(--text);
+      }
+
+      .btn-secondary:hover { background: #fafafa; }
+
+      .btn-light {
+        background: white;
+        color: var(--dark);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f2eee8 0%, #fff 50%, #edf4ee 100%);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 2rem;
+        padding: 4.5rem 0 5rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #35543a;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        margin: 1rem 0 0;
+        font-size: clamp(2.3rem, 5vw, 4.6rem);
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+      }
+
+      .hero p {
+        margin: 1.35rem 0 0;
+        max-width: 38rem;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 1.8rem;
+      }
+
+      .quick-facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .fact-card,
+      .card,
+      .testimonial,
+      .gallery-card,
+      .contact-card,
+      .about-box,
+      .feature-box {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .fact-card {
+        padding: 1rem;
+      }
+
+      .fact-card strong {
+        display: block;
+        font-size: 0.98rem;
+      }
+
+      .fact-card span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .hero-visual {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1rem;
+      }
+
+      .project-panel {
+        min-height: 470px;
+        border-radius: 32px;
+        padding: 1.25rem;
+        background:
+          linear-gradient(180deg, rgba(14, 23, 37, 0.02), rgba(14, 23, 37, 0.18)),
+          url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80') center/cover;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .project-note {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 1rem 1.05rem;
+      }
+
+      .project-note small,
+      .section-label {
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .side-stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .feature-box,
+      .contact-card {
+        padding: 1.4rem;
+      }
+
+      .feature-box h3,
+      .contact-card h3,
+      .section-title {
+        margin: 0.8rem 0 0;
+      }
+
+      .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+
+      section { padding: 5rem 0; }
+
+      .section-heading {
+        max-width: 44rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-heading h2 {
+        margin: 0.5rem 0 0;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+      }
+
+      .section-heading p {
+        color: var(--muted);
+        margin-top: 1rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
+
+      .card { padding: 1.5rem; }
+      .card h3 { margin: 1rem 0 0; }
+      .card p { color: var(--muted); margin: 0.75rem 0 0; }
+
+      .split-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 1.4rem;
+      }
+
+      .about-box,
+      .why-box {
+        padding: 1.8rem;
+      }
+
+      .about-box {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+      }
+
+      .about-box p,
+      .why-list p,
+      .testimonial p,
+      .gallery-copy p,
+      .contact-band p {
+        color: var(--muted);
+      }
+
+      .story-box {
+        margin-top: 1rem;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 1rem;
+      }
+
+      .why-box {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+      }
+
+      .why-list {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 1.25rem;
+      }
+
+      .why-item {
+        display: flex;
+        gap: 0.8rem;
+        align-items: flex-start;
+        padding: 1rem;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #fcfbf9;
+      }
+
+      .check {
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .reviews-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--muted);
+        box-shadow: var(--shadow);
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+
+      .testimonial {
+        padding: 1.6rem;
+      }
+
+      .stars { color: #d29b16; font-size: 1rem; }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 1.3rem;
+      }
+
+      .gallery-copy {
+        padding: 1.8rem;
+      }
+
+      .mini-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .gallery-card {
+        min-height: 210px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .g1 { background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80'); }
+      .g2 { background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80'); }
+
+      .contact-band {
+        background: var(--dark);
+        color: #fff;
+        text-align: center;
+        border-radius: 36px;
+        padding: 4rem 1.5rem;
+      }
+
+      .contact-band p { color: #d1d5db; max-width: 40rem; margin: 1rem auto 0; }
+      .contact-actions {
+        margin-top: 1.8rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        border: 1px solid var(--line);
+        background: white;
+        border-radius: 12px;
+        padding: 0.7rem 0.9rem;
+        font-weight: 700;
+      }
+
+      [data-lang] { display: none; }
+      html[lang="en"] [data-lang="en"] { display: block; }
+      html[lang="es"] [data-lang="es"] { display: block; }
+      html[lang="en"] .lang-inline[data-lang="en"],
+      html[lang="es"] .lang-inline[data-lang="es"] { display: inline; }
+      .lang-inline { display: none; }
+
+      @media (max-width: 1024px) {
+        .hero-grid,
+        .split-grid,
+        .gallery-grid,
+        .hero-visual,
+        .services-grid,
+        .quick-facts,
+        .testimonial-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-grid,
+        .split-grid,
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid { grid-template-columns: repeat(2, 1fr); }
+        .quick-facts { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (max-width: 760px) {
+        nav {
+          display: none;
+          position: absolute;
+          top: calc(100% + 0.5rem);
+          left: 1rem;
+          right: 1rem;
+          background: white;
+          border: 1px solid var(--line);
+          border-radius: 20px;
+          padding: 1rem;
+          box-shadow: var(--shadow);
+          flex-direction: column;
+        }
+
+        nav.open { display: flex; }
+        .mobile-menu-btn { display: inline-flex; }
+        .header-inner { align-items: flex-start; }
+        .nav-wrap { flex-direction: column; align-items: end; }
+        .hero-grid { padding: 3.4rem 0 4rem; }
+        .quick-facts,
+        .services-grid,
+        .testimonial-grid,
+        .mini-gallery,
+        .hero-visual {
+          grid-template-columns: 1fr;
+        }
+        .reviews-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <h1>Arturo's Painting</h1>
+          <p>
+            <span class="lang-inline" data-lang="en">Clean work • Honest pricing</span>
+            <span class="lang-inline" data-lang="es">Trabajo limpio • Precios honestos</span>
+          </p>
+        </div>
+
+        <div class="nav-wrap">
+          <button class="mobile-menu-btn" id="menuBtn">Menu</button>
+
+          <nav id="mainNav">
+            <a href="#services">
+              <span class="lang-inline" data-lang="en">Services</span>
+              <span class="lang-inline" data-lang="es">Servicios</span>
+            </a>
+            <a href="#why-arturo">
+              <span class="lang-inline" data-lang="en">Why Arturo</span>
+              <span class="lang-inline" data-lang="es">Por qué Arturo</span>
+            </a>
+            <a href="#reviews">
+              <span class="lang-inline" data-lang="en">Reviews</span>
+              <span class="lang-inline" data-lang="es">Reseñas</span>
+            </a>
+            <a href="#contact">
+              <span class="lang-inline" data-lang="en">Contact</span>
+              <span class="lang-inline" data-lang="es">Contacto</span>
+            </a>
+          </nav>
+
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="active" data-set-lang="en">EN</button>
+            <button data-set-lang="es">ES</button>
+          </div>
+
+          <a class="btn btn-primary" href="tel:+10000000000">
+            <span class="lang-inline" data-lang="en">Call Now</span>
+            <span class="lang-inline" data-lang="es">Llamar</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="lang-inline" data-lang="en">Serving local homes & businesses</span>
+              <span class="lang-inline" data-lang="es">Sirviendo hogares y negocios locales</span>
+            </div>
+
+            <div data-lang="en">
+              <h2>Beautiful, reliable painting with a clean, modern finish.</h2>
+              <p>
+                Arturo helps homeowners refresh their spaces with quality interior and exterior painting, honest communication, and detail-focused work you can feel good about.
+              </p>
+            </div>
+
+            <div data-lang="es">
+              <h2>Pintura hermosa y confiable con un acabado limpio y moderno.</h2>
+              <p>
+                Arturo ayuda a los propietarios a renovar sus espacios con pintura interior y exterior de calidad, comunicación honesta y trabajo detallado en el que pueden confiar.
+              </p>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">
+                <span class="lang-inline" data-lang="en">Get Free Estimate</span>
+                <span class="lang-inline" data-lang="es">Solicitar estimado gratis</span>
+              </a>
+              <a class="btn btn-secondary" href="#services">
+                <span class="lang-inline" data-lang="en">View Services</span>
+                <span class="lang-inline" data-lang="es">Ver servicios</span>
+              </a>
+            </div>
+
+            <div class="quick-facts">
+              <div class="fact-card">
+                <strong>
+                  <span class="lang-inline" data-lang="en">Free Estimates</span>
+                  <span class="lang-inline" data-lang="es">Estimados gratis</span>
+                </strong>
+                <span>
+                  <span class="lang-inline" data-lang="en">Simple, straightforward quotes.</span>
+                  <span class="lang-inline" data-lang="es">Cotizaciones claras y directas.</span>
+                </span>
+              </div>
+              <div class="fact-card">
+                <strong>
+                  <span class="lang-inline" data-lang="en">Interior & Exterior</span>
+                  <span class="lang-inline" data-lang="es">Interior y exterior</span>
+                </strong>
+                <span>
+                  <span class="lang-inline" data-lang="en">Residential-focused painting services.</span>
+                  <span class="lang-inline" data-lang="es">Servicios de pintura enfocados en residencias.</span>
+                </span>
+              </div>
+              <div class="fact-card">
+                <strong>
+                  <span class="lang-inline" data-lang="en">Clean Work</span>
+                  <span class="lang-inline" data-lang="es">Trabajo limpio</span>
+                </strong>
+                <span>
+                  <span class="lang-inline" data-lang="en">Careful prep and detail-focused results.</span>
+                  <span class="lang-inline" data-lang="es">Preparación cuidadosa y resultados detallados.</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="project-panel">
+              <div class="project-note">
+                <small>
+                  <span class="lang-inline" data-lang="en">Featured project</span>
+                  <span class="lang-inline" data-lang="es">Proyecto destacado</span>
+                </small>
+                <h3>
+                  <span class="lang-inline" data-lang="en">Fresh paint. Strong first impression.</span>
+                  <span class="lang-inline" data-lang="es">Pintura fresca. Una gran primera impresión.</span>
+                </h3>
+                <p>
+                  <span class="lang-inline" data-lang="en">Swap in one of Arturo's actual project photos here.</span>
+                  <span class="lang-inline" data-lang="es">Aquí puedes poner una foto real de un proyecto de Arturo.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="side-stack">
+              <div class="feature-box">
+                <div class="icon">🎨</div>
+                <h3>
+                  <span class="lang-inline" data-lang="en">Modern, inviting design</span>
+                  <span class="lang-inline" data-lang="es">Diseño moderno y acogedor</span>
+                </h3>
+                <p>
+                  <span class="lang-inline" data-lang="en">Soft neutrals, clean spacing, and a polished contractor look.</span>
+                  <span class="lang-inline" data-lang="es">Neutros suaves, espacios limpios y una apariencia profesional.</span>
+                </p>
+              </div>
+
+              <div class="contact-card" style="background: var(--dark); color: white;">
+                <div class="section-label" style="color: #cbd5e1;">
+                  <span class="lang-inline" data-lang="en">Quick contact</span>
+                  <span class="lang-inline" data-lang="es">Contacto rápido</span>
+                </div>
+                <h3>
+                  <span class="lang-inline" data-lang="en">Ready for a quote?</span>
+                  <span class="lang-inline" data-lang="es">¿Listo para un estimado?</span>
+                </h3>
+                <p style="color: #cbd5e1;">
+                  <span class="lang-inline" data-lang="en">Add Arturo's phone number here for easy mobile calls or texts.</span>
+                  <span class="lang-inline" data-lang="es">Agrega aquí el número de Arturo para llamadas o textos fáciles.</span>
+                </p>
+                <a class="btn btn-light" href="#contact">
+                  <span class="lang-inline" data-lang="en">Contact Arturo</span>
+                  <span class="lang-inline" data-lang="es">Contactar a Arturo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-label">
+              <span class="lang-inline" data-lang="en">Services</span>
+              <span class="lang-inline" data-lang="es">Servicios</span>
+            </div>
+            <div data-lang="en">
+              <h2>Simple painting services homeowners actually need.</h2>
+              <p>Keep the homepage focused on the core services, then let the second page go deeper.</p>
+            </div>
+            <div data-lang="es">
+              <h2>Servicios de pintura simples que los propietarios realmente necesitan.</h2>
+              <p>Mantén la página principal enfocada en los servicios principales y deja los detalles para la segunda página.</p>
+            </div>
+          </div>
+
+          <div class="services-grid">
+            <article class="card">
+              <div class="icon">🖌️</div>
+              <div data-lang="en"><h3>Interior Painting</h3><p>Clean, detailed painting for bedrooms, living rooms, kitchens, and more.</p></div>
+              <div data-lang="es"><h3>Pintura interior</h3><p>Pintura limpia y detallada para recámaras, salas, cocinas y más.</p></div>
+            </article>
+            <article class="card">
+              <div class="icon">🏠</div>
+              <div data-lang="en"><h3>Exterior Painting</h3><p>Durable exterior painting that improves curb appeal and protects the home.</p></div>
+              <div data-lang="es"><h3>Pintura exterior</h3><p>Pintura exterior duradera que mejora la vista de la casa y la protege.</p></div>
+            </article>
+            <article class="card">
+              <div class="icon">🚪</div>
+              <div data-lang="en"><h3>Cabinet & Trim</h3><p>Smooth finishes for cabinets, trim, doors, and detail-focused projects.</p></div>
+              <div data-lang="es"><h3>Gabinetes y molduras</h3><p>Acabados lisos para gabinetes, molduras, puertas y detalles finos.</p></div>
+            </article>
+            <article class="card">
+              <div class="icon">🧰</div>
+              <div data-lang="en"><h3>Prep & Repair</h3><p>Patching, caulking, prep work, and touch-ups that support a better finish.</p></div>
+              <div data-lang="es"><h3>Preparación y reparación</h3><p>Resanes, calafateo, preparación y retoques para un mejor acabado.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-arturo" style="background: #fff;">
+        <div class="container split-grid">
+          <div class="about-box">
+            <div class="section-label">
+              <span class="lang-inline" data-lang="en">About Arturo</span>
+              <span class="lang-inline" data-lang="es">Sobre Arturo</span>
+            </div>
+            <div data-lang="en">
+              <h2 class="section-title">A personal brand people can trust.</h2>
+              <p>This section should feel personal and grounded. A photo of Arturo and a short story will build trust quickly.</p>
+              <div class="story-box">Family-owned feel. Honest work. Professional results. This is the perfect spot for Arturo's story, values, and approach to customer service.</div>
+            </div>
+            <div data-lang="es">
+              <h2 class="section-title">Una marca personal en la que la gente puede confiar.</h2>
+              <p>Esta sección debe sentirse personal y cercana. Una foto de Arturo y una historia breve generan confianza rápidamente.</p>
+              <div class="story-box">Ambiente familiar. Trabajo honesto. Resultados profesionales. Este es el lugar ideal para contar la historia de Arturo, sus valores y su forma de atender a los clientes.</div>
+            </div>
+          </div>
+
+          <div class="why-box">
+            <div class="section-label">
+              <span class="lang-inline" data-lang="en">Why choose Arturo</span>
+              <span class="lang-inline" data-lang="es">Por qué elegir a Arturo</span>
+            </div>
+            <div class="why-list">
+              <div class="why-item"><span class="check">✓</span><p><span class="lang-inline" data-lang="en">Free estimates and honest pricing</span><span class="lang-inline" data-lang="es">Estimados gratis y precios honestos</span></p></div>
+              <div class="why-item"><span class="check">✓</span><p><span class="lang-inline" data-lang="en">Clean, careful, detail-focused work</span><span class="lang-inline" data-lang="es">Trabajo limpio, cuidadoso y enfocado en los detalles</span></p></div>
+              <div class="why-item"><span class="check">✓</span><p><span class="lang-inline" data-lang="en">Reliable communication from start to finish</span><span class="lang-inline" data-lang="es">Comunicación confiable de principio a fin</span></p></div>
+              <div class="why-item"><span class="check">✓</span><p><span class="lang-inline" data-lang="en">Interior and exterior residential painting</span><span class="lang-inline" data-lang="es">Pintura residencial interior y exterior</span></p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <div class="container">
+          <div class="reviews-head">
+            <div class="section-heading" style="margin-bottom: 0;">
+              <div class="section-label">
+                <span class="lang-inline" data-lang="en">Reviews</span>
+                <span class="lang-inline" data-lang="es">Reseñas</span>
+              </div>
+              <div data-lang="en"><h2>A few strong testimonials go a long way.</h2></div>
+              <div data-lang="es"><h2>Unas cuantas reseñas buenas ayudan muchísimo.</h2></div>
+            </div>
+            <div class="pill">★★★★★ <span class="lang-inline" data-lang="en">5-star client focus</span><span class="lang-inline" data-lang="es">Enfoque en clientes de 5 estrellas</span></div>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial">
+              <div class="stars">★★★★★</div>
+              <div data-lang="en"><p>“Arturo was professional, on time, and the finished work made a huge difference in our home.”</p><strong>Local Homeowner</strong></div>
+              <div data-lang="es"><p>“Arturo fue profesional, puntual y el trabajo final hizo una gran diferencia en nuestra casa.”</p><strong>Cliente local</strong></div>
+            </article>
+            <article class="testimonial">
+              <div class="stars">★★★★★</div>
+              <div data-lang="en"><p>“Very clean work, fair pricing, and great communication throughout the project.”</p><strong>Residential Client</strong></div>
+              <div data-lang="es"><p>“Trabajo muy limpio, precio justo y excelente comunicación durante todo el proyecto.”</p><strong>Cliente residencial</strong></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container gallery-grid">
+          <div class="gallery-copy card">
+            <div class="section-label">
+              <span class="lang-inline" data-lang="en">Gallery preview</span>
+              <span class="lang-inline" data-lang="es">Vista previa de galería</span>
+            </div>
+            <div data-lang="en">
+              <h2 class="section-title">Let the work speak for itself.</h2>
+              <p>Give the homepage a light preview here, then let the full gallery page handle before-and-after photos and bigger project grids.</p>
+            </div>
+            <div data-lang="es">
+              <h2 class="section-title">Deja que el trabajo hable por sí solo.</h2>
+              <p>Aquí puedes mostrar una pequeña vista previa y dejar que la página completa de galería enseñe los proyectos completos.</p>
+            </div>
+            <a class="btn btn-secondary" href="#">
+              <span class="lang-inline" data-lang="en">View Gallery</span>
+              <span class="lang-inline" data-lang="es">Ver galería</span>
+            </a>
+          </div>
+
+          <div class="mini-gallery">
+            <div class="gallery-card g1"></div>
+            <div class="gallery-card g2"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="contact-band">
+            <div class="section-label" style="color: #cbd5e1;">
+              <span class="lang-inline" data-lang="en">Contact</span>
+              <span class="lang-inline" data-lang="es">Contacto</span>
+            </div>
+            <div data-lang="en">
+              <h2 class="section-title">Ready to refresh your home or business?</h2>
+              <p>End the homepage with a clean, high-converting call to action that makes it easy to call, text, or request a free estimate.</p>
+            </div>
+            <div data-lang="es">
+              <h2 class="section-title">¿Listo para renovar tu casa o negocio?</h2>
+              <p>Termina la página principal con una llamada a la acción clara para que sea fácil llamar, mandar mensaje o pedir un estimado gratis.</p>
+            </div>
+            <div class="contact-actions">
+              <a class="btn btn-light" href="tel:+10000000000">
+                <span class="lang-inline" data-lang="en">Call Arturo</span>
+                <span class="lang-inline" data-lang="es">Llamar a Arturo</span>
+              </a>
+              <a class="btn btn-secondary" href="mailto:arturo@example.com">
+                <span class="lang-inline" data-lang="en">Request Estimate</span>
+                <span class="lang-inline" data-lang="es">Solicitar estimado</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('[data-set-lang]');
+      const menuBtn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mainNav');
+
+      function setLanguage(lang) {
+        root.setAttribute('lang', lang);
+        buttons.forEach((btn) => btn.classList.toggle('active', btn.dataset.setLang === lang));
+        localStorage.setItem('arturo-language', lang);
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.setLang));
+      });
+
+      menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+
+      document.querySelectorAll('nav a').forEach((link) => {
+        link.addEventListener('click', () => nav.classList.remove('open'));
+      });
+
+      const savedLanguage = localStorage.getItem('arturo-language') || 'en';
+      setLanguage(savedLanguage);
+    </script>
+  </body>
+</html>
