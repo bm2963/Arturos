@@ -732,3 +732,8 @@ html[lang="es"] .lang-inline[data-lang="es"] {
   width: auto;
   display: block;
 }
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 42px;
+  }
+}
