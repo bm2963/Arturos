@@ -728,12 +728,12 @@ html[lang="es"] .lang-inline[data-lang="es"] {
   }
 }
 .nav-logo {
-  height: 84px;
+  height: 130px;
   width: auto;
   display: block;
 }
 @media (max-width: 768px) {
   .nav-logo {
-    height: 42px;
+    height: 90px;
   }
 }
