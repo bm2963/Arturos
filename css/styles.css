@@ -773,3 +773,40 @@ html[lang="es"] .lang-inline[data-lang="es"] {
 .service-detail-card [data-lang="es"] p {
   padding-bottom: 1.5rem;
 }
+.hero-visual {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.project-panel {
+  min-height: 390px;
+  border-radius: 32px;
+  padding: 1.25rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bottom-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.feature-box,
+.contact-card {
+  height: 100%;
+}
+@media (max-width: 760px) {
+  .hero-bottom-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .project-panel {
+    min-height: 320px;
+  }
+}
