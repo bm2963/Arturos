@@ -55,8 +55,8 @@ img {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(231, 224, 215, 0.9);
+  background: #f7f5f2;
+  border-bottom: 1px solid #e5e1dc;
 }
 
 .header-inner {
@@ -64,7 +64,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .brand h1 {
