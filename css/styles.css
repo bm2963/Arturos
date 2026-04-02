@@ -287,11 +287,12 @@ nav a:hover {
   min-height: 470px;
   border-radius: 32px;
   padding: 1.25rem;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
 }
 
 .project-note {
