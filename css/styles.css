@@ -737,3 +737,37 @@ html[lang="es"] .lang-inline[data-lang="es"] {
     height: 90px;
   }
 }
+.service-detail-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.service-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.service-detail-card h3,
+.service-detail-card p {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.service-detail-card h3 {
+  margin-top: 1.25rem;
+}
+
+.service-detail-card p:last-child,
+.service-detail-card [data-lang="en"] p,
+.service-detail-card [data-lang="es"] p {
+  padding-bottom: 1.5rem;
+}
