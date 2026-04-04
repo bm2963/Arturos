@@ -780,17 +780,58 @@ html[lang="es"] .lang-inline[data-lang="es"] {
   align-content: start;
 }
 
-.project-panel {
-  min-height: 360px;
-  width: 100%;
+.project-panel.video-panel {
+  position: relative;
+  min-height: 420px;
   border-radius: 32px;
-  padding: 1.25rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 1rem;
+  background: #f3f1ec;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+}
+
+.video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-note {
+  position: relative;
+  z-index: 2;
+  max-width: 78%;
+  background: rgba(247, 244, 236, 0.96);
+  border-radius: 28px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hero-bottom-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 760px) {
+  .hero-bottom-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .project-panel.video-panel {
+    min-height: 320px;
+  }
+
+  .project-note {
+    max-width: 100%;
+  }
 }
 
 .hero-bottom-cards {
