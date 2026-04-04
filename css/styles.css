@@ -842,3 +842,20 @@ html[lang="es"] .lang-inline[data-lang="es"] {
     max-width: 100%;
   }
 }
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.about-box,
+.why-box {
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
