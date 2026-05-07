@@ -232,7 +232,7 @@ nav a:hover::after { width: 100%; }
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 3rem;
-  padding: 4.5rem 0 5rem;
+  padding: 3rem 0 3.5rem;
   align-items: center;
   position: relative;
 }
@@ -413,12 +413,12 @@ nav a:hover::after { width: 100%; }
 .light-label { color: #94a3b8; }
 
 /* ── Sections ── */
-.section { padding: 5rem 0; }
+.section { padding: 3.5rem 0; }
 .alt-section { background: #fff; }
 
 .section-heading {
   max-width: 46rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 .section-heading h2,
 .section-title {
@@ -675,7 +675,7 @@ nav a:hover::after { width: 100%; }
   color: #fff;
   text-align: center;
   border-radius: 36px;
-  padding: 4.5rem 2rem;
+  padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -710,7 +710,7 @@ nav a:hover::after { width: 100%; }
 
 /* ── Page Hero (inner pages) ── */
 .page-hero {
-  padding: 4.5rem 0 2.5rem;
+  padding: 3rem 0 1.75rem;
 }
 .page-hero h2 {
   font-family: var(--font-display);
@@ -782,10 +782,11 @@ nav a:hover::after { width: 100%; }
   background: var(--accent-soft);
   border-bottom: 1px solid #c8deca;
   text-align: center;
-  padding: 0.6rem 1rem;
-  font-size: 0.88rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.83rem;
   color: #2f5238;
   font-weight: 500;
+  line-height: 1.4;
 }
 .lang-nudge strong {
   font-weight: 800;
@@ -793,7 +794,7 @@ nav a:hover::after { width: 100%; }
   color: white;
   padding: 0.1rem 0.45rem;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.05em;
 }
 
