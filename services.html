@@ -3,14 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services | Arturo's Painting</title>
-    <meta
-      name="description"
-      content="Learn more about Arturo's painting services, process, service area, and what clients can expect."
-    />
+    <title>Services | Arturo's Painting · Houston, TX</title>
+    <meta name="description" content="Learn more about Arturo's painting services — interior, exterior, cabinets, prep, pressure washing, and touch-ups in Houston, TX." />
+    <meta name="theme-color" content="#14202a" />
+
+    <meta property="og:title" content="Services | Arturo's Painting" />
+    <meta property="og:description" content="Interior & exterior painting, cabinet & trim, prep & repair, pressure washing, and touch-ups." />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand">
@@ -18,9 +24,12 @@
         </a>
 
         <div class="nav-wrap">
-          <button class="mobile-menu-btn" id="menuBtn" type="button">Menu</button>
+          <button class="mobile-menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">
+            <span class="lang-inline" data-lang="en">Menu</span>
+            <span class="lang-inline" data-lang="es">Menú</span>
+          </button>
 
-          <nav id="mainNav">
+          <nav id="mainNav" role="navigation">
             <a href="index.html">
               <span class="lang-inline" data-lang="en">Home</span>
               <span class="lang-inline" data-lang="es">Inicio</span>
@@ -28,10 +37,6 @@
             <a href="services.html">
               <span class="lang-inline" data-lang="en">Services</span>
               <span class="lang-inline" data-lang="es">Servicios</span>
-            </a>
-            <a href="gallery.html">
-              <span class="lang-inline" data-lang="en">Gallery</span>
-              <span class="lang-inline" data-lang="es">Galería</span>
             </a>
             <a href="index.html#contact">
               <span class="lang-inline" data-lang="en">Contact</span>
@@ -44,7 +49,7 @@
             <button data-set-lang="es" type="button">ES</button>
           </div>
 
-          <a class="btn btn-primary desktop-call" href="tel:+8327852536">
+          <a class="btn btn-primary desktop-call" href="tel:+18327852536">
             <span class="lang-inline" data-lang="en">Call Now</span>
             <span class="lang-inline" data-lang="es">Llamar</span>
           </a>
@@ -53,30 +58,31 @@
     </header>
 
     <main>
+
+      <!-- ── Page Hero ── -->
       <section class="page-hero">
         <div class="container narrow">
           <div class="section-label">
             <span class="lang-inline" data-lang="en">Services</span>
             <span class="lang-inline" data-lang="es">Servicios</span>
           </div>
-
           <div data-lang="en">
             <h2>Painting services built around quality, prep, and reliability.</h2>
           </div>
-
           <div data-lang="es">
             <h2>Servicios de pintura enfocados en calidad, preparación y confianza.</h2>
           </div>
         </div>
       </section>
 
+      <!-- ── Services Detail Grid ── -->
       <section class="section">
         <div class="container">
           <div class="services-detail-grid">
-      
-            <article class="card service-detail-card">
+
+            <article class="service-detail-card">
               <div class="service-card-image">
-                <img src="images/paintings/ser-int.jpeg" alt="Interior painting service" />
+                <img src="images/paintings/ser-int.jpeg" alt="Interior painting — bedrooms, living rooms, kitchens" />
               </div>
               <div data-lang="en">
                 <h3>Interior Painting</h3>
@@ -87,10 +93,10 @@
                 <p>Recámaras, salas, cocinas, pasillos y más con líneas limpias y preparación cuidadosa.</p>
               </div>
             </article>
-      
-            <article class="card service-detail-card">
+
+            <article class="service-detail-card">
               <div class="service-card-image">
-                <img src="images/paintings/serv-ext.jpg" alt="Exterior painting service" />
+                <img src="images/paintings/serv-ext.jpg" alt="Exterior painting — house siding, trim, fences" />
               </div>
               <div data-lang="en">
                 <h3>Exterior Painting</h3>
@@ -101,13 +107,13 @@
                 <p>Superficies exteriores pintadas pensando en la durabilidad para mejorar la apariencia de la propiedad.</p>
               </div>
             </article>
-      
-            <article class="card service-detail-card">
+
+            <article class="service-detail-card">
               <div class="service-card-image">
                 <img src="images/paintings/serv-cab.jpg" alt="Cabinet and trim painting service" />
               </div>
               <div data-lang="en">
-                <h3>Cabinet & Trim</h3>
+                <h3>Cabinet &amp; Trim</h3>
                 <p>Cabinets, baseboards, doors, trim, and detail areas finished with a smoother, updated look.</p>
               </div>
               <div data-lang="es">
@@ -115,13 +121,13 @@
                 <p>Gabinetes, zoclos, puertas, molduras y áreas de detalle con una apariencia más lisa y renovada.</p>
               </div>
             </article>
-      
-            <article class="card service-detail-card">
+
+            <article class="service-detail-card">
               <div class="service-card-image">
-                <img src="images/paintings/serv-wr.jpg" alt="Prep and repair service" />
+                <img src="images/paintings/serv-wr.jpg" alt="Surface prep and repair before painting" />
               </div>
               <div data-lang="en">
-                <h3>Prep & Repair</h3>
+                <h3>Prep &amp; Repair</h3>
                 <p>Patching, sanding, caulking, masking, and surface preparation that help the final result last longer.</p>
               </div>
               <div data-lang="es">
@@ -129,10 +135,10 @@
                 <p>Resanes, lijado, calafateo, cubiertas y preparación de superficies para un mejor resultado final.</p>
               </div>
             </article>
-      
-            <article class="card service-detail-card">
+
+            <article class="service-detail-card">
               <div class="service-card-image">
-                <img src="images/paintings/serv-pw.jpg" alt="Pressure washing service" />
+                <img src="images/paintings/serv-pw.jpg" alt="Pressure washing before painting" />
               </div>
               <div data-lang="en">
                 <h3>Pressure Washing</h3>
@@ -143,13 +149,13 @@
                 <p>Limpiar las superficies antes de pintar ayuda a lograr mejor adherencia y un acabado más profesional.</p>
               </div>
             </article>
-      
-            <article class="card service-detail-card">
+
+            <article class="service-detail-card">
               <div class="service-card-image">
-                <img src="images/paintings/serv-touchup.jpg" alt="Touch-ups and repaints service" />
+                <img src="images/paintings/serv-touchup.jpg" alt="Touch-ups and repaints" />
               </div>
               <div data-lang="en">
-                <h3>Touch-Ups & Repaints</h3>
+                <h3>Touch-Ups &amp; Repaints</h3>
                 <p>Perfect for refreshing worn spaces, covering scuffs, or bringing older paint back to life.</p>
               </div>
               <div data-lang="es">
@@ -157,11 +163,12 @@
                 <p>Ideal para renovar espacios desgastados, cubrir marcas o dar nueva vida a pintura vieja.</p>
               </div>
             </article>
-      
+
           </div>
         </div>
       </section>
 
+      <!-- ── About / Process ── -->
       <section class="section alt-section">
         <div class="container">
           <div class="about-layout">
@@ -170,34 +177,23 @@
                 <span class="lang-inline" data-lang="en">About Arturo</span>
                 <span class="lang-inline" data-lang="es">Sobre Arturo</span>
               </div>
-      
               <div data-lang="en">
                 <h2 class="section-title">Professional work with a personal touch.</h2>
-                <p>
-                  With over 25 years of experience, Arturo has built a reputation for delivering clean, reliable painting work that homeowners and businesses can trust. What started as a hands-on trade has grown into a commitment to doing every job with care, attention to detail, and pride in the final result.
-                </p>
-                <p>
-                  Arturo believes that a great paint job is more than just color — it’s about proper preparation, clean lines, and making sure each space looks and feels right when the work is complete. From small touch-ups to full interior and exterior projects, every job is approached with the same level of dedication and professionalism.
-                </p>
+                <p>With over 25 years of experience, Arturo has built a reputation for delivering clean, reliable painting work that homeowners and businesses can trust. What started as a hands-on trade has grown into a commitment to doing every job with care, attention to detail, and pride in the final result.</p>
+                <p>Arturo believes that a great paint job is more than just color — it's about proper preparation, clean lines, and making sure each space looks and feels right when the work is complete. From small touch-ups to full interior and exterior projects, every job is approached with the same level of dedication and professionalism.</p>
               </div>
-      
               <div data-lang="es">
                 <h2 class="section-title">Trabajo profesional con un toque personal.</h2>
-                <p>
-                  Con más de 25 años de experiencia, Arturo ha construido una reputación basada en ofrecer trabajos de pintura limpios y confiables en los que los clientes pueden confiar. Lo que comenzó como un oficio práctico se ha convertido en un compromiso de realizar cada proyecto con cuidado, atención al detalle y orgullo por el resultado final.
-                </p>
-                <p>
-                  Arturo cree que un buen trabajo de pintura es más que solo color — se trata de una preparación adecuada, líneas limpias y de asegurar que cada espacio luzca y se sienta bien al terminar. Desde pequeños retoques hasta proyectos completos de interior y exterior, cada trabajo se realiza con el mismo nivel de dedicación y profesionalismo.
-                </p>
+                <p>Con más de 25 años de experiencia, Arturo ha construido una reputación basada en ofrecer trabajos de pintura limpios y confiables en los que los clientes pueden confiar. Lo que comenzó como un oficio práctico se ha convertido en un compromiso de realizar cada proyecto con cuidado, atención al detalle y orgullo por el resultado final.</p>
+                <p>Arturo cree que un buen trabajo de pintura es más que solo color — se trata de una preparación adecuada, líneas limpias y de asegurar que cada espacio luzca y se sienta bien al terminar. Desde pequeños retoques hasta proyectos completos de interior y exterior, cada trabajo se realiza con el mismo nivel de dedicación y profesionalismo.</p>
               </div>
             </div>
-      
+
             <div class="why-box">
               <div class="section-label">
                 <span class="lang-inline" data-lang="en">Simple process</span>
                 <span class="lang-inline" data-lang="es">Proceso simple</span>
               </div>
-      
               <div class="why-list">
                 <div class="why-item">
                   <span class="check">1</span>
@@ -206,7 +202,6 @@
                     <span class="lang-inline" data-lang="es">Solicita un estimado</span>
                   </p>
                 </div>
-      
                 <div class="why-item">
                   <span class="check">2</span>
                   <p>
@@ -214,7 +209,6 @@
                     <span class="lang-inline" data-lang="es">Revisión y cotización</span>
                   </p>
                 </div>
-      
                 <div class="why-item">
                   <span class="check">3</span>
                   <p>
@@ -222,7 +216,6 @@
                     <span class="lang-inline" data-lang="es">Preparación y pintura</span>
                   </p>
                 </div>
-      
                 <div class="why-item">
                   <span class="check">4</span>
                   <p>
@@ -236,62 +229,58 @@
         </div>
       </section>
 
+      <!-- ── Service Area + FAQ ── -->
       <section class="section">
         <div class="container split-grid">
-          <div class="card info-card">
+          <div class="info-card">
             <div class="section-label">
               <span class="lang-inline" data-lang="en">Service area</span>
               <span class="lang-inline" data-lang="es">Área de servicio</span>
             </div>
-      
             <div data-lang="en">
               <h3>Houston, TX and surrounding areas</h3>
-              <p>If you are outside of Houston or the surrounding area but still need painting services, feel free to give us a call to discuss your project.</p>
+              <p>If you are outside Houston or the surrounding area but still need painting services, feel free to give us a call to discuss your project.</p>
             </div>
-      
             <div data-lang="es">
               <h3>Houston, TX y áreas cercanas</h3>
               <p>Si se encuentra fuera de Houston o de las áreas cercanas, pero aún necesita servicios de pintura, no dude en llamarnos para hablar sobre su proyecto.</p>
             </div>
           </div>
-      
-          <div class="card info-card">
+
+          <div class="info-card">
             <div class="section-label">
               <span class="lang-inline" data-lang="en">FAQs</span>
               <span class="lang-inline" data-lang="es">Preguntas frecuentes</span>
             </div>
-      
             <div class="faq-list">
               <div class="faq-item">
                 <div data-lang="en">
                   <strong>Do you provide free estimates?</strong>
-                  <p>Yes, we provide free estimates so you can better understand the scope of your project and the work involved before getting started.</p>
+                  <p>Yes — free estimates so you understand the scope before getting started.</p>
                 </div>
                 <div data-lang="es">
                   <strong>¿Ofreces estimados gratis?</strong>
-                  <p>Sí, ofrecemos estimados gratis para que pueda entender mejor el alcance de su proyecto y el trabajo necesario antes de comenzar.</p>
+                  <p>Sí, ofrecemos estimados gratis para que pueda entender el alcance antes de comenzar.</p>
                 </div>
               </div>
-      
               <div class="faq-item">
                 <div data-lang="en">
                   <strong>Do you help with color selection?</strong>
-                  <p>Yes, we can help guide you through color choices and finishes to find an option that fits your space, style, and overall look.</p>
+                  <p>Yes, we can guide you through color choices and finishes to fit your space and style.</p>
                 </div>
                 <div data-lang="es">
                   <strong>¿Ayudas con la selección de color?</strong>
-                  <p>Sí, podemos ayudarle con la selección de colores y acabados para encontrar una opción que combine con su espacio, estilo y apariencia general.</p>
+                  <p>Sí, podemos ayudarle con la selección de colores y acabados que combinen con su espacio.</p>
                 </div>
               </div>
-      
               <div class="faq-item">
                 <div data-lang="en">
                   <strong>How long does a project usually take?</strong>
-                  <p>Project timelines can vary depending on the size of the job and the amount of preparation needed, but we always aim to complete each project efficiently without sacrificing quality.</p>
+                  <p>It varies by size and prep needed, but we always aim to complete work efficiently without sacrificing quality.</p>
                 </div>
                 <div data-lang="es">
                   <strong>¿Cuánto tiempo tarda normalmente un proyecto?</strong>
-                  <p>El tiempo de cada proyecto puede variar según el tamaño del trabajo y la preparación necesaria, pero siempre buscamos completar cada proyecto de manera eficiente sin sacrificar la calidad.</p>
+                  <p>Varía según el tamaño, pero siempre buscamos completar cada proyecto de manera eficiente sin sacrificar la calidad.</p>
                 </div>
               </div>
             </div>
@@ -299,6 +288,7 @@
         </div>
       </section>
 
+      <!-- ── Contact CTA ── -->
       <section class="section">
         <div class="container">
           <div class="contact-band">
@@ -306,33 +296,42 @@
               <span class="lang-inline" data-lang="en">Contact</span>
               <span class="lang-inline" data-lang="es">Contacto</span>
             </div>
-
             <div data-lang="en">
               <h2 class="section-title">Need help with your next painting project?</h2>
+              <p>Call or send an email — Arturo will get back to you with a free estimate.</p>
             </div>
-
             <div data-lang="es">
               <h2 class="section-title">¿Necesitas ayuda con tu próximo proyecto de pintura?</h2>
+              <p>Llama o envía un correo — Arturo te responderá con un estimado gratis.</p>
             </div>
-
             <div class="contact-actions">
-              <a class="btn btn-light" href="tel:+8327852536">
-                <span class="lang-inline" data-lang="en">Call Arturo</span>
-                <span class="lang-inline" data-lang="es">Llamar a Arturo</span>
+              <a class="btn btn-light" href="tel:+18327852536">
+                <span class="lang-inline" data-lang="en">📞 Call Arturo</span>
+                <span class="lang-inline" data-lang="es">📞 Llamar a Arturo</span>
               </a>
-              <a class="btn btn-secondary" href="index.html#contact">
-                <span class="lang-inline" data-lang="en">Go to Contact</span>
-                <span class="lang-inline" data-lang="es">Ir a contacto</span>
+              <a class="btn btn-accent" href="index.html#contact">
+                <span class="lang-inline" data-lang="en">✉️ Request Estimate</span>
+                <span class="lang-inline" data-lang="es">✉️ Solicitar estimado</span>
               </a>
             </div>
           </div>
         </div>
       </section>
+
     </main>
 
-    <a class="floating-call" href="tel:+8327852536">
-      <span class="lang-inline" data-lang="en">Call Arturo</span>
-      <span class="lang-inline" data-lang="es">Llamar a Arturo</span>
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <span class="lang-inline" data-lang="en">© 2025 Arturo's Painting · Houston, TX · <a href="tel:+18327852536">(832) 785-2536</a></span>
+          <span class="lang-inline" data-lang="es">© 2025 Arturo's Painting · Houston, TX · <a href="tel:+18327852536">(832) 785-2536</a></span>
+        </p>
+      </div>
+    </footer>
+
+    <a class="floating-call" href="tel:+18327852536" aria-label="Call Arturo">
+      <span class="lang-inline" data-lang="en">📞 Call Arturo</span>
+      <span class="lang-inline" data-lang="es">📞 Llamar a Arturo</span>
     </a>
 
     <script src="js/script.js"></script>

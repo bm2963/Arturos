@@ -3,24 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arturo's Painting</title>
-    <meta
-      name="description"
-      content="Arturo's Painting provides interior and exterior painting with clean work, honest pricing, and reliable service."
-    />
+    <title>Arturo's Painting | Houston, TX</title>
+    <meta name="description" content="Arturo's Painting provides interior and exterior painting with clean work, honest pricing, and reliable service in Houston, TX." />
+    <meta name="theme-color" content="#14202a" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Arturo's Painting | Houston, TX" />
+    <meta property="og:description" content="Interior & exterior painting with clean work, honest pricing, and reliable service." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/paintings/featured-photo.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand">
-            <img src="images/newlogo.png" alt="Arturo's Professional Painting Logo" class="nav-logo" />
+          <img src="images/newlogo.png" alt="Arturo's Painting Logo" class="nav-logo" />
         </a>
 
         <div class="nav-wrap">
-          <button class="mobile-menu-btn" id="menuBtn" type="button">Menu</button>
+          <button class="mobile-menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">
+            <span class="lang-inline" data-lang="en">Menu</span>
+            <span class="lang-inline" data-lang="es">Menú</span>
+          </button>
 
-          <nav id="mainNav">
+          <nav id="mainNav" role="navigation">
             <a href="index.html">
               <span class="lang-inline" data-lang="en">Home</span>
               <span class="lang-inline" data-lang="es">Inicio</span>
@@ -28,10 +39,6 @@
             <a href="services.html">
               <span class="lang-inline" data-lang="en">Services</span>
               <span class="lang-inline" data-lang="es">Servicios</span>
-            </a>
-            <a href="gallery.html">
-              <span class="lang-inline" data-lang="en">Gallery</span>
-              <span class="lang-inline" data-lang="es">Galería</span>
             </a>
             <a href="#contact">
               <span class="lang-inline" data-lang="en">Contact</span>
@@ -44,7 +51,7 @@
             <button data-set-lang="es" type="button">ES</button>
           </div>
 
-          <a class="btn btn-primary desktop-call" href="tel:+8327852536">
+          <a class="btn btn-primary desktop-call" href="tel:+18327852536">
             <span class="lang-inline" data-lang="en">Call Now</span>
             <span class="lang-inline" data-lang="es">Llamar</span>
           </a>
@@ -53,29 +60,25 @@
     </header>
 
     <main>
+
+      <!-- ── Hero ── -->
       <section class="hero">
         <div class="container hero-grid">
+
           <div>
             <div class="eyebrow">
-              <span class="lang-inline" data-lang="en">Serving local homes & businesses</span>
-              <span class="lang-inline" data-lang="es">Sirviendo hogares y negocios locales</span>
+              <span class="lang-inline" data-lang="en">Serving Houston & surrounding areas</span>
+              <span class="lang-inline" data-lang="es">Sirviendo Houston y sus alrededores</span>
             </div>
 
             <div data-lang="en">
               <h2>Beautiful, reliable painting with a clean, modern finish.</h2>
-              <p>
-                Arturo helps homeowners refresh their spaces with quality interior and exterior
-                painting, honest communication, and detail-focused work you can feel good about.
-              </p>
+              <p>Arturo helps homeowners refresh their spaces with quality interior and exterior painting, honest communication, and detail-focused work you can feel good about.</p>
             </div>
 
             <div data-lang="es">
               <h2>Pintura hermosa y confiable con un acabado limpio y moderno.</h2>
-              <p>
-                Arturo ayuda a los propietarios a renovar sus espacios con pintura interior y
-                exterior de calidad, comunicación honesta y trabajo detallado en el que pueden
-                confiar.
-              </p>
+              <p>Arturo ayuda a los propietarios a renovar sus espacios con pintura de calidad, comunicación honesta y trabajo detallado en el que pueden confiar.</p>
             </div>
 
             <div class="hero-actions">
@@ -100,26 +103,24 @@
                   <span class="lang-inline" data-lang="es">Cotizaciones claras y directas.</span>
                 </span>
               </div>
-
               <div class="fact-card">
                 <strong>
-                  <span class="lang-inline" data-lang="en">Interior & Exterior</span>
-                  <span class="lang-inline" data-lang="es">Interior y exterior</span>
+                  <span class="lang-inline" data-lang="en">25+ Years Experience</span>
+                  <span class="lang-inline" data-lang="es">+25 años de experiencia</span>
                 </strong>
                 <span>
-                  <span class="lang-inline" data-lang="en">Residential-focused painting services.</span>
-                  <span class="lang-inline" data-lang="es">Servicios de pintura enfocados en residencias.</span>
+                  <span class="lang-inline" data-lang="en">Interior & exterior work.</span>
+                  <span class="lang-inline" data-lang="es">Trabajos de interior y exterior.</span>
                 </span>
               </div>
-
               <div class="fact-card">
                 <strong>
                   <span class="lang-inline" data-lang="en">Clean Work</span>
                   <span class="lang-inline" data-lang="es">Trabajo limpio</span>
                 </strong>
                 <span>
-                  <span class="lang-inline" data-lang="en">Careful prep and detail-focused results.</span>
-                  <span class="lang-inline" data-lang="es">Preparación cuidadosa y resultados detallados.</span>
+                  <span class="lang-inline" data-lang="en">Careful prep & detail-focused.</span>
+                  <span class="lang-inline" data-lang="es">Preparación cuidadosa y detallada.</span>
                 </span>
               </div>
             </div>
@@ -138,7 +139,7 @@
                   </iframe>
                 </div>
               </div>
-          
+
               <div class="project-note">
                 <small>
                   <span class="lang-inline" data-lang="en">Featured project</span>
@@ -150,24 +151,24 @@
                 </h3>
                 <p>
                   <span class="lang-inline" data-lang="en">Watch a recent Arturo's Painting project and see the quality for yourself.</span>
-                  <span class="lang-inline" data-lang="es">Mira un proyecto reciente de Arturo's Painting y comprueba la calidad por ti mismo.</span>
+                  <span class="lang-inline" data-lang="es">Mira un proyecto reciente y comprueba la calidad por ti mismo.</span>
                 </p>
               </div>
             </div>
-          
+
             <div class="hero-bottom-cards">
               <div class="feature-box">
                 <h3>
-                  <span class="lang-inline" data-lang="en">Modern, inviting design</span>
-                  <span class="lang-inline" data-lang="es">Diseño moderno y acogedor</span>
+                  <span class="lang-inline" data-lang="en">Detail-focused, every time</span>
+                  <span class="lang-inline" data-lang="es">Detalle en cada proyecto</span>
                 </h3>
                 <p>
-                  <span class="lang-inline" data-lang="en">Soft neutrals, clean spacing, and a polished contractor look.</span>
-                  <span class="lang-inline" data-lang="es">Neutros suaves, espacios limpios y una apariencia profesional.</span>
+                  <span class="lang-inline" data-lang="en">Proper prep, clean lines, and a finish that lasts.</span>
+                  <span class="lang-inline" data-lang="es">Buena preparación, líneas limpias y un acabado duradero.</span>
                 </p>
               </div>
-          
-              <div class="contact-card dark-card">
+
+              <div class="contact-card">
                 <div class="section-label light-label">
                   <span class="lang-inline" data-lang="en">Quick contact</span>
                   <span class="lang-inline" data-lang="es">Contacto rápido</span>
@@ -175,7 +176,7 @@
                 <h3>
                   <span class="lang-inline" data-lang="en">Ready for a quote?</span>
                   <span class="lang-inline" data-lang="es">¿Listo para un estimado?</span>
-
+                </h3>
                 <a class="btn btn-light" href="#contact">
                   <span class="lang-inline" data-lang="en">Contact Arturo</span>
                   <span class="lang-inline" data-lang="es">Contactar a Arturo</span>
@@ -183,9 +184,11 @@
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
+      <!-- ── Services Overview ── -->
       <section class="section">
         <div class="container">
           <div class="section-heading">
@@ -193,14 +196,8 @@
               <span class="lang-inline" data-lang="en">Services</span>
               <span class="lang-inline" data-lang="es">Servicios</span>
             </div>
-
-            <div data-lang="en">
-              <h2>Simple painting services homeowners actually need.</h2>
-            </div>
-
-            <div data-lang="es">
-              <h2>Servicios de pintura simples que los propietarios realmente necesitan.</h2>
-            </div>
+            <div data-lang="en"><h2>Simple painting services homeowners actually need.</h2></div>
+            <div data-lang="es"><h2>Servicios de pintura simples que los propietarios realmente necesitan.</h2></div>
           </div>
 
           <div class="services-grid">
@@ -231,7 +228,7 @@
             <article class="card">
               <div class="icon">🚪</div>
               <div data-lang="en">
-                <h3>Cabinet & Trim</h3>
+                <h3>Cabinet &amp; Trim</h3>
                 <p>Smooth finishes for cabinets, trim, doors, and detail-focused projects.</p>
               </div>
               <div data-lang="es">
@@ -243,7 +240,7 @@
             <article class="card">
               <div class="icon">🧰</div>
               <div data-lang="en">
-                <h3>Prep & Repair</h3>
+                <h3>Prep &amp; Repair</h3>
                 <p>Patching, caulking, prep work, and touch-ups that support a better finish.</p>
               </div>
               <div data-lang="es">
@@ -262,6 +259,7 @@
         </div>
       </section>
 
+      <!-- ── About / Process ── -->
       <section class="section alt-section">
         <div class="container">
           <div class="about-layout">
@@ -270,34 +268,23 @@
                 <span class="lang-inline" data-lang="en">About Arturo</span>
                 <span class="lang-inline" data-lang="es">Sobre Arturo</span>
               </div>
-      
               <div data-lang="en">
                 <h2 class="section-title">Professional work with a personal touch.</h2>
-                <p>
-                  With over 25 years of experience, Arturo has built a reputation for delivering clean, reliable painting work that homeowners and businesses can trust. What started as a hands-on trade has grown into a commitment to doing every job with care, attention to detail, and pride in the final result.
-                </p>
-                <p>
-                  Arturo believes that a great paint job is more than just color — it’s about proper preparation, clean lines, and making sure each space looks and feels right when the work is complete. From small touch-ups to full interior and exterior projects, every job is approached with the same level of dedication and professionalism.
-                </p>
+                <p>With over 25 years of experience, Arturo has built a reputation for delivering clean, reliable painting work that homeowners and businesses can trust. What started as a hands-on trade has grown into a commitment to doing every job with care, attention to detail, and pride in the final result.</p>
+                <p>Arturo believes that a great paint job is more than just color — it's about proper preparation, clean lines, and making sure each space looks and feels right when the work is complete.</p>
               </div>
-      
               <div data-lang="es">
                 <h2 class="section-title">Trabajo profesional con un toque personal.</h2>
-                <p>
-                  Con más de 25 años de experiencia, Arturo ha construido una reputación basada en ofrecer trabajos de pintura limpios y confiables en los que los clientes pueden confiar. Lo que comenzó como un oficio práctico se ha convertido en un compromiso de realizar cada proyecto con cuidado, atención al detalle y orgullo por el resultado final.
-                </p>
-                <p>
-                  Arturo cree que un buen trabajo de pintura es más que solo color — se trata de una preparación adecuada, líneas limpias y de asegurar que cada espacio luzca y se sienta bien al terminar. Desde pequeños retoques hasta proyectos completos de interior y exterior, cada trabajo se realiza con el mismo nivel de dedicación y profesionalismo.
-                </p>
+                <p>Con más de 25 años de experiencia, Arturo ha construido una reputación basada en ofrecer trabajos de pintura limpios y confiables en los que los clientes pueden confiar. Lo que comenzó como un oficio práctico se ha convertido en un compromiso de realizar cada proyecto con cuidado y orgullo por el resultado final.</p>
+                <p>Arturo cree que un buen trabajo de pintura es más que solo color — se trata de una preparación adecuada, líneas limpias y de asegurar que cada espacio luzca y se sienta bien al terminar.</p>
               </div>
             </div>
-      
+
             <div class="why-box">
               <div class="section-label">
                 <span class="lang-inline" data-lang="en">Simple process</span>
                 <span class="lang-inline" data-lang="es">Proceso simple</span>
               </div>
-      
               <div class="why-list">
                 <div class="why-item">
                   <span class="check">1</span>
@@ -306,7 +293,6 @@
                     <span class="lang-inline" data-lang="es">Solicita un estimado</span>
                   </p>
                 </div>
-      
                 <div class="why-item">
                   <span class="check">2</span>
                   <p>
@@ -314,7 +300,6 @@
                     <span class="lang-inline" data-lang="es">Revisión y cotización</span>
                   </p>
                 </div>
-      
                 <div class="why-item">
                   <span class="check">3</span>
                   <p>
@@ -322,7 +307,6 @@
                     <span class="lang-inline" data-lang="es">Preparación y pintura</span>
                   </p>
                 </div>
-      
                 <div class="why-item">
                   <span class="check">4</span>
                   <p>
@@ -336,6 +320,7 @@
         </div>
       </section>
 
+      <!-- ── Testimonials ── -->
       <section class="section">
         <div class="container">
           <div class="reviews-head">
@@ -344,78 +329,82 @@
                 <span class="lang-inline" data-lang="en">Reviews</span>
                 <span class="lang-inline" data-lang="es">Reseñas</span>
               </div>
-              <div data-lang="en"><h2>A few strong testimonials go a long way.</h2></div>
-              <div data-lang="es"><h2>Unas cuantas reseñas buenas ayudan muchísimo.</h2></div>
+              <div data-lang="en"><h2>What clients are saying.</h2></div>
+              <div data-lang="es"><h2>Lo que dicen los clientes.</h2></div>
             </div>
-
-            <div class="pill">
-              ★★★★★
-              <span class="lang-inline" data-lang="en">5-star client focus</span>
-              <span class="lang-inline" data-lang="es">Enfoque en clientes de 5 estrellas</span>
-            </div>
+            <div class="pill">★★★★★ 5-star work</div>
           </div>
 
           <div class="testimonial-grid">
             <article class="testimonial">
               <div class="stars">★★★★★</div>
               <div data-lang="en">
-                <p>“Arturo was professional, on time, and the finished work made a huge difference in our home.”</p>
-                <strong>Local Homeowner</strong>
+                <p>"Arturo was professional, on time, and the finished work made a huge difference in our home."</p>
+                <strong>— Local Homeowner</strong>
               </div>
               <div data-lang="es">
-                <p>“Arturo fue profesional, puntual y el trabajo final hizo una gran diferencia en nuestra casa.”</p>
-                <strong>Cliente local</strong>
+                <p>"Arturo fue profesional, puntual y el trabajo final hizo una gran diferencia en nuestra casa."</p>
+                <strong>— Cliente local</strong>
               </div>
             </article>
 
             <article class="testimonial">
               <div class="stars">★★★★★</div>
               <div data-lang="en">
-                <p>“Very clean work, fair pricing, and great communication throughout the project.”</p>
-                <strong>Residential Client</strong>
+                <p>"Very clean work, fair pricing, and great communication throughout the project."</p>
+                <strong>— Residential Client</strong>
               </div>
               <div data-lang="es">
-                <p>“Trabajo muy limpio, precio justo y excelente comunicación durante todo el proyecto.”</p>
-                <strong>Cliente residencial</strong>
+                <p>"Trabajo muy limpio, precio justo y excelente comunicación durante todo el proyecto."</p>
+                <strong>— Cliente residencial</strong>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container gallery-grid">
-          <div class="gallery-copy card">
-            <div class="section-label">
-              <span class="lang-inline" data-lang="en">Gallery preview</span>
-              <span class="lang-inline" data-lang="es">Vista previa de galería</span>
+      <!-- ── Work Preview ── -->
+      <section class="section alt-section">
+        <div class="container">
+          <div class="gallery-grid">
+            <div class="gallery-copy">
+              <div class="section-label">
+                <span class="lang-inline" data-lang="en">Our work</span>
+                <span class="lang-inline" data-lang="es">Nuestro trabajo</span>
+              </div>
+              <div data-lang="en">
+                <h2 class="section-title">Let the work speak for itself.</h2>
+                <p>A sample of recent projects — interior, exterior, cabinets, and more.</p>
+              </div>
+              <div data-lang="es">
+                <h2 class="section-title">Deja que el trabajo hable por sí solo.</h2>
+                <p>Una muestra de proyectos recientes — interior, exterior, gabinetes y más.</p>
+              </div>
+              <a class="btn btn-secondary" href="#contact">
+                <span class="lang-inline" data-lang="en">Get Your Free Estimate</span>
+                <span class="lang-inline" data-lang="es">Solicitar estimado gratis</span>
+              </a>
             </div>
 
-            <div data-lang="en">
-              <h2 class="section-title">Let the work speak for itself.</h2>
-            </div>
-
-            <div data-lang="es">
-              <h2 class="section-title">Deja que el trabajo hable por sí solo.</h2>
-            </div>
-
-            <a class="btn btn-secondary" href="gallery.html">
-              <span class="lang-inline" data-lang="en">View Gallery</span>
-              <span class="lang-inline" data-lang="es">Ver galería</span>
-            </a>
-          </div>
-
-          <div class="mini-gallery">
-            <div class="gallery-card image-fill">
-              <img src="images/paintings/pre3.jpg" alt="Painting project preview" />
-            </div>
-            <div class="gallery-card image-fill">
-              <img src="images/paintings/pre1.jpg" alt="Painting project preview" />
+            <div class="mini-gallery">
+              <div class="gallery-card">
+                <img src="images/paintings/pre3.jpg" alt="Exterior painting project by Arturo" />
+              </div>
+              <div class="gallery-card">
+                <img src="images/paintings/pre1.jpg" alt="Interior painting project by Arturo" />
+              </div>
+              <div class="gallery-card">
+                <img src="images/paintings/cab1.jpg" alt="Cabinet painting project by Arturo" />
+              </div>
+              <div class="gallery-card">
+                <img src="images/paintings/ext1.jpg" alt="Exterior house painting by Arturo" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ── Contact ── -->
       <section class="section" id="contact">
         <div class="container">
           <div class="contact-band">
@@ -423,35 +412,42 @@
               <span class="lang-inline" data-lang="en">Contact</span>
               <span class="lang-inline" data-lang="es">Contacto</span>
             </div>
-
             <div data-lang="en">
               <h2 class="section-title">Ready to refresh your home or business?</h2>
-              <p>Make it easy for people to call, text, or request a free estimate.</p>
+              <p>Call, text, or send an email to request your free estimate. Arturo will get back to you quickly.</p>
             </div>
-
             <div data-lang="es">
               <h2 class="section-title">¿Listo para renovar tu casa o negocio?</h2>
-              <p>Haz que sea fácil llamar, mandar mensaje o pedir un estimado gratis.</p>
+              <p>Llama, manda mensaje o envía un correo para pedir tu estimado gratis. Arturo te responderá pronto.</p>
             </div>
-
             <div class="contact-actions">
-              <a class="btn btn-light" href="tel:+8327852536">
-                <span class="lang-inline" data-lang="en">Call Arturo</span>
-                <span class="lang-inline" data-lang="es">Llamar a Arturo</span>
+              <a class="btn btn-light" href="tel:+18327852536">
+                <span class="lang-inline" data-lang="en">📞 Call Arturo</span>
+                <span class="lang-inline" data-lang="es">📞 Llamar a Arturo</span>
               </a>
-              <a class="btn btn-secondary" href="mailto:gnajellie@gmail.com">
-                <span class="lang-inline" data-lang="en">Request Estimate (Email)</span>
-                <span class="lang-inline" data-lang="es">Solicitar estimado</span>
+              <a class="btn btn-accent" href="mailto:gnajellie@gmail.com">
+                <span class="lang-inline" data-lang="en">✉️ Request Estimate</span>
+                <span class="lang-inline" data-lang="es">✉️ Solicitar estimado</span>
               </a>
             </div>
           </div>
         </div>
       </section>
+
     </main>
 
-    <a class="floating-call" href="tel:+8327852536">
-      <span class="lang-inline" data-lang="en">Call Arturo</span>
-      <span class="lang-inline" data-lang="es">Llamar a Arturo</span>
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <span class="lang-inline" data-lang="en">© 2025 Arturo's Painting · Houston, TX · <a href="tel:+18327852536">(832) 785-2536</a></span>
+          <span class="lang-inline" data-lang="es">© 2025 Arturo's Painting · Houston, TX · <a href="tel:+18327852536">(832) 785-2536</a></span>
+        </p>
+      </div>
+    </footer>
+
+    <a class="floating-call" href="tel:+18327852536" aria-label="Call Arturo">
+      <span class="lang-inline" data-lang="en">📞 Call Arturo</span>
+      <span class="lang-inline" data-lang="es">📞 Llamar a Arturo</span>
     </a>
 
     <script src="js/script.js"></script>
