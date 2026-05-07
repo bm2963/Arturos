@@ -877,5 +877,5 @@ html[lang="es"] .lang-inline[data-lang="es"] { display: inline; }
 
 @media (max-width: 480px) {
   .quick-facts { grid-template-columns: 1fr; }
-  .section { padding: 3.5rem 0; }
+  .section { padding: 2.5rem 0; }
 }
