@@ -740,6 +740,26 @@ nav a:hover::after { width: 100%; }
 }
 .floating-call:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(15,23,42,0.3); }
 
+/* ── Language Nudge Bar ── */
+.lang-nudge {
+  background: var(--accent-soft);
+  border-bottom: 1px solid #c8deca;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  color: #2f5238;
+  font-weight: 500;
+}
+.lang-nudge strong {
+  font-weight: 800;
+  background: var(--accent);
+  color: white;
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
 /* ── Language System ── */
 [data-lang] { display: none; }
 html[lang="en"] [data-lang="en"] { display: block; }
